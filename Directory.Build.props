@@ -1,0 +1,18 @@
+<Project>
+
+  <!-- Single source of the release version for every project. Bump here (SemVer) and in CHANGELOG.md. -->
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+    <Product>WinSense</Product>
+    <Authors>Rodrigo Bechara</Authors>
+    <Copyright>© 2026 Rodrigo Bechara</Copyright>
+    <!-- Keep "1.0.0" clean: no "+commit-hash" suffix once the repo is under git. -->
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+  </PropertyGroup>
+
+  <!-- Symbols inside the DLLs: no loose .pdb in the package, but stack traces keep line numbers. -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+</Project>

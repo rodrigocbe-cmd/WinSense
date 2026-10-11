@@ -1,0 +1,55 @@
+<UserControl x:Class="WinSense.App.Views.KeyboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:WinSense.App.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=vm:KeyboardViewModel}">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+        <Style x:Key="HideWhenEmpty" TargetType="TextBlock" BasedOn="{StaticResource SecondaryTextStyle}">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <TextBlock Text="Teclado" FontSize="28" FontWeight="SemiBold" />
+        <TextBlock Text="Como o teclado se comporta ao ligar o PC."
+                   Style="{StaticResource SecondaryTextStyle}" Margin="0,4,0,20" />
+
+        <Border Style="{StaticResource CardStyle}">
+            <StackPanel>
+                <TextBlock Text="Num Lock ao ligar o PC" FontSize="18" FontWeight="SemiBold" />
+                <TextBlock Style="{StaticResource SecondaryTextStyle}" Margin="0,2,0,16"
+                           Text="Define se o teclado numérico (à direita) já começa digitando números, desde a tela de bloqueio." />
+
+                <StackPanel IsEnabled="{Binding CanChangeNumLock}">
+                    <RadioButton GroupName="NumLock" IsChecked="{Binding IsNumLockOnSelected}" Margin="0,0,0,12">
+                        <StackPanel Margin="4,0,0,0">
+                            <TextBlock Text="Ligado" FontWeight="SemiBold" />
+                            <TextBlock Style="{StaticResource SecondaryTextStyle}"
+                                       Text="As teclas do teclado numérico digitam números. Bom para quem digita senhas ou PINs com números." />
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton GroupName="NumLock" IsChecked="{Binding IsNumLockOffSelected}">
+                        <StackPanel Margin="4,0,0,0">
+                            <TextBlock Text="Desligado" FontWeight="SemiBold" />
+                            <TextBlock Style="{StaticResource SecondaryTextStyle}"
+                                       Text="As teclas do teclado numérico funcionam como setas, Home, End, Page Up e Page Down até você apertar Num Lock." />
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+
+                <TextBlock Text="{Binding NumLockStatus}" Style="{StaticResource HideWhenEmpty}" Margin="0,16,0,0" />
+                <Button Content="Igualar na tela de bloqueio" Command="{Binding MatchLockScreenCommand}"
+                        Visibility="{Binding IsNumLockMixed, Converter={StaticResource BoolToVisibility}}"
+                        IsEnabled="{Binding CanChangeNumLock}" HorizontalAlignment="Left" Padding="16,6" Margin="0,10,0,0" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

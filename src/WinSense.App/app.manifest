@@ -4,8 +4,9 @@
   <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
     <security>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
-        <!-- Vendor firmware interfaces (e.g. Acer BatteryControl) deny access without elevation. -->
-        <requestedExecutionLevel level="requireAdministrator" uiAccess="false" />
+        <!-- Starts unelevated and relaunches itself as administrator (see App.OnStartup): through a
+             scheduled task when installed, so there is no UAC prompt on every start. -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
     </security>
   </trustInfo>

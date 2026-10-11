@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="WinSense">
+  <defs>
+    <linearGradient id="ws-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3D5AFE"/>
+      <stop offset="1" stop-color="#00BFD8"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#ws-bg)"/>
+  <!-- "Win": three window panes -->
+  <rect x="26" y="26" width="34" height="34" rx="7" fill="#fff"/>
+  <rect x="68" y="26" width="34" height="34" rx="7" fill="#fff" fill-opacity=".85"/>
+  <rect x="26" y="68" width="34" height="34" rx="7" fill="#fff" fill-opacity=".85"/>
+  <!-- "Sense": signal waves in the fourth pane -->
+  <g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round">
+    <path d="M72 88 A8 8 0 0 1 80 96"/>
+    <path d="M72 79 A17 17 0 0 1 89 96" stroke-opacity=".85"/>
+    <path d="M72 70 A26 26 0 0 1 98 96" stroke-opacity=".65"/>
+  </g>
+  <circle cx="72" cy="96" r="4.5" fill="#fff"/>
+</svg>
