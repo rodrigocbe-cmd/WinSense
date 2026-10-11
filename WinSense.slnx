@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/WinSense.App/WinSense.App.csproj" />
+    <Project Path="src/WinSense.Core/WinSense.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/WinSense.Core.Tests/WinSense.Core.Tests.csproj" />
+  </Folder>
+</Solution>

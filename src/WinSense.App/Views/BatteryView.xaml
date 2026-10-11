@@ -1,0 +1,39 @@
+<UserControl x:Class="WinSense.App.Views.BatteryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:WinSense.App.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=vm:BatteryViewModel}">
+    <StackPanel>
+        <TextBlock Text="Bateria e Carga" FontSize="28" FontWeight="SemiBold" />
+        <TextBlock Text="{Binding BatteryStatusText}" Style="{StaticResource SecondaryTextStyle}" Margin="0,4,0,20" />
+
+        <Border Style="{StaticResource CardStyle}">
+            <StackPanel>
+                <TextBlock Text="Modo de Carregamento de Bateria" FontSize="18" FontWeight="SemiBold" />
+                <TextBlock Text="{Binding ProviderName}" Style="{StaticResource SecondaryTextStyle}" Margin="0,2,0,16" />
+
+                <StackPanel IsEnabled="{Binding CanChangeMode}">
+                    <RadioButton GroupName="ChargeMode" IsChecked="{Binding IsOptimizedSelected}" Margin="0,0,0,12">
+                        <StackPanel Margin="4,0,0,0">
+                            <TextBlock Text="Carregamento Otimizado de Bateria" FontWeight="SemiBold" />
+                            <TextBlock Style="{StaticResource SecondaryTextStyle}"
+                                       Text="Carrega até 80% e, na tomada, o notebook passa a funcionar direto pela fonte. Prolonga a vida útil da bateria." />
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton GroupName="ChargeMode" IsChecked="{Binding IsFullSelected}">
+                        <StackPanel Margin="4,0,0,0">
+                            <TextBlock Text="Carregamento Completo de Bateria" FontWeight="SemiBold" />
+                            <TextBlock Style="{StaticResource SecondaryTextStyle}"
+                                       Text="Carrega até 100%. Use quando precisar da autonomia máxima, como antes de uma viagem." />
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+
+                <TextBlock Text="{Binding StatusMessage}" Style="{StaticResource SecondaryTextStyle}" Margin="0,16,0,0" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>
