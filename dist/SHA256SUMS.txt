@@ -1,2 +1,0 @@
-fa94fe61ccead5b7a8099472f1dd994ea8b75e8a3d223b9d38b0eb3aff3aa19b  WinSense-1.0.0-setup.exe
-6eaf85b32162caf0ddeca92786501ea6ed606e4ca7b4bc03038f8372983a48f9  WinSense-1.0.0-win-x64.zip

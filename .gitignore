@@ -4,5 +4,5 @@ obj/
 *.user
 TestResults/
 publish/
-# dist/
+dist/
 artifacts/
